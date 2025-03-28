@@ -27,6 +27,7 @@ export default function Search({
         throw new Error("Something went wrong! Please try again.");
       }
       const data = await response.json();
+      setSearchItem(searchInput);
       setRecipeData(data.results);
     } catch (error) {
       setError(error.message);

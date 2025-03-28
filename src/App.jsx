@@ -9,7 +9,7 @@ export default function App() {
   const [searchInput, setSearchInput] = useState("");
   const [searchItem, setSearchItem] = useState("");
   const [recipeId, setRecipeId] = useState(null);
-  console.log(searchInput);
+  console.log(searchItem);
   return (
     <div>
       <Header
