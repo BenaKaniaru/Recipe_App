@@ -6,19 +6,19 @@ export default function Search({
   setSearchItem,
 }) {
   const [searchInput, setSearchInput] = useState("");
-  const [lastSearch, setLastSearch] = useState(
-    localStorage.getItem("lastSearch") || "vegetarian"
-  );
+  const [lastSearch, setLastSearch] = useState(() => {
+    return localStorage.getItem("lastSearch") || "vegetarian";
+  });
 
   const url = "https://api.spoonacular.com/recipes/complexSearch";
-  //const API_KEY = "1cee92b5ef904e19865a35efa82f527e";
+  console.log(import.meta.env.VITE_SPOONACULAR_API_KEY);
 
   async function fetchRecipes(searchInput) {
     setLoading(true);
     setError("");
     try {
       const response = await fetch(
-        `${url}?query=${lastSearch}&apiKey=${
+        `${url}?query=${searchInput}&apiKey=${
           import.meta.env.VITE_SPOONACULAR_API_KEY
         }`
       );
@@ -41,16 +41,16 @@ export default function Search({
       alert("Your search input is empty. Please enter a recipe name!");
       return;
     }
+
+    setLastSearch(searchInput);
+    localStorage.setItem("lastSearch", searchInput);
     fetchRecipes(searchInput);
-    setLastSearch(searchInput);
-    setLastSearch(searchInput);
-    localStorage.setItem("lastSearch", lastSearch);
     setSearchInput("");
   };
 
   useEffect(() => {
     fetchRecipes(lastSearch);
-  }, [lastSearch]);
+  }, []);
 
   return (
     <div className="w-full">
