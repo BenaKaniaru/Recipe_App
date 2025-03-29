@@ -6,9 +6,9 @@ export default function App() {
   const [recipeData, setRecipeData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [searchInput, setSearchInput] = useState("");
   const [searchItem, setSearchItem] = useState("");
   const [recipeId, setRecipeId] = useState(null);
+  const [showDetails, setShowDetails] = useState(false);
   console.log(searchItem);
   return (
     <div>
@@ -20,6 +20,8 @@ export default function App() {
         loading={loading}
         error={error}
         setError={setError}
+        setRecipeId={setRecipeId}
+        setShowDetails={setShowDetails}
       />
       <RecipeDashboard
         recipeData={recipeData}
@@ -28,6 +30,8 @@ export default function App() {
         searchItem={searchItem}
         recipeId={recipeId}
         setRecipeId={setRecipeId}
+        setShowDetails={setShowDetails}
+        showDetails={showDetails}
       />
 
       <div

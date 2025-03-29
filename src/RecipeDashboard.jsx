@@ -8,9 +8,11 @@ export default function RecipeDashboard({
   searchItem,
   recipeId,
   setRecipeId,
+  setShowDetails,
+  showDetails,
 }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [showDetails, setShowDetails] = useState(false);
+  //const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);

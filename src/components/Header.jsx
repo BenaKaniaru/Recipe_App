@@ -7,6 +7,8 @@ export default function Header({
   searchInput,
   setSearchInput,
   setSearchItem,
+  setRecipeId,
+  setShowDetails,
 }) {
   const [isOpen, setIsOpen] = useState();
   return (
@@ -25,6 +27,8 @@ export default function Header({
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         setSearchItem={setSearchItem}
+        setRecipeId={setRecipeId}
+        setShowDetails={setShowDetails}
       />
       <div className="w-120 flex items-center md:items-end justify-end">
         <nav className="hidden md:flex gap-4  mr-8 text-lg font-medium">

@@ -4,6 +4,8 @@ export default function Search({
   setError,
   setRecipeData,
   setSearchItem,
+  setRecipeId,
+  setShowDetails,
 }) {
   const [searchInput, setSearchInput] = useState("");
   const [lastSearch, setLastSearch] = useState(() => {
@@ -16,6 +18,8 @@ export default function Search({
   async function fetchRecipes(searchInput) {
     setLoading(true);
     setError("");
+    setRecipeId(null);
+    setShowDetails(null);
     try {
       const response = await fetch(
         `${url}?query=${searchInput}&apiKey=${
